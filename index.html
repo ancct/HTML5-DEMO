@@ -1,0 +1,903 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<title>Examples</title>
+<meta name="description" content="">
+<meta name="keywords" content="">
+<link href="" rel="stylesheet">
+
+
+<link rel="stylesheet" href="css/reset.css">
+<link rel="stylesheet" href="css/style.css" media="screen" type="text/css" />
+<style type="text/css">
+	*{
+		margin: 0;
+		padding: 0;
+	}
+	html{
+		font-family: "microsoft yahei";
+	}
+	body{
+		background: url(images/bg.png);
+	}
+	ul{
+		list-style: none;
+	}
+	/* 设置背景视频 */
+	.bg_video{
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: -1;
+	}
+	/* 设置视频宽高 */
+	video{
+		width: 100%;
+	}
+	/* 第二页背景 */
+	#page_two_bg{
+		width: 100%;
+		position: absolute;
+		z-index: -1;
+		overflow: hidden;
+	}
+	/* 第二页背景图片 */
+	#page_two_bg img{
+		width: 100%;
+		display: block;
+	}
+
+	/* 设置导航盒子 */
+	.nav{
+		width: 100%;
+		height: 100px;
+		position: fixed;
+		top: 0;
+		left: 0;
+		z-index: 999999999;
+		border-radius: 10px;
+		transition: 1s;
+	}
+	.nav:hover{
+		background: rgba(000,000,000,.6);
+	}
+	/* 清除无序列表的小圆点 */
+	.nav ul{
+		list-style: none;
+	}
+	/* 设置导航属性 */
+	.nav ul .logo{
+		width: 100px;
+	}
+	/* 设置logo图片 */
+	.nav ul .logo img{
+		width: 100%;
+		display: block;
+	}
+	/* 设置导航文字 */
+	.nav ul .text{
+		float: left;
+		padding: 5px 10px;
+		border-radius: 10px;
+		cursor: pointer;
+		transition: 1s;
+		margin: 5px;
+		color: #fff;
+	}
+	/* 导航设置鼠标移动时的动画 */
+	.nav ul .text:hover{
+		background: #ffa800;
+	}
+
+	/* 设置居中的大盒子 */
+	.box{
+		width: 800px;
+		height: 200px;
+		margin: 15% auto 0;
+	}
+	/*设置“Neusoft”字体样式 */
+	.box h1{
+		font-size: 56px;
+		color: #fff;
+		text-align: center;
+	}
+	/* 设置所有div居中 */
+	.box div{
+		text-align: center;
+	}
+	/* 设置打字效果的标签 */
+	.box div b{
+		color: #fff;
+		font-size: 40px;
+	}
+	/* 设置闪烁的打字光标 */
+	.box div span{
+		font-size: 50px;
+		color: #fff;
+		animation:guangbiao 1.5s linear infinite;
+		-moz-animation:guangbiao 1.5s linear infinite; /* Firefox */
+		-webkit-animation:guangbiao 1.5s linear infinite; /* Safari and Chrome */
+		-o-animation:guangbiao 1.5s linear infinite; /* Opera */
+	}
+
+	/* 定义光标动画 */
+	@keyframes guangbiao{
+		0% {opacity: 0;}
+		50% {opacity:1;}
+		100% {opacity: 0;}
+	}
+	/* webkit内核动画兼容 */
+	@-webkit-keyframes guangbiao /* Safari and Chrome */{
+		0% {opacity: 0;}
+		50% {opacity:1;}
+		100% {opacity: 0;}
+	}
+	/* 设置文字垂直居中 */
+	#word{
+		display: inline;
+	}
+	/* 设置点击盒子样式 */
+	#click_box{
+		margin: 10px auto;
+		background: #ffa800;
+		padding: 5px;
+		color: #fff;
+		font-weight: bold;
+		width:0;
+		font-size: 30px;
+		border-radius: 20px;
+		cursor: pointer;
+		opacity: 0;
+		overflow: hidden;
+		height: 40px;
+	}
+	/* 第二页的大盒子 */
+	#page_two{
+		width: 100%;
+		position: absolute;
+	}
+	/* 第二页的每一个文字 */
+	#page_two h1,#page_two h3,#page_two p{
+		position: absolute;
+		color: #fff;
+		left: 10%;
+		bottom: 15%;
+		opacity: 0;
+	}
+	/* 小标题 */
+	#page_two h3{
+		bottom: 20%;
+	}
+	/* 大标题 */
+	#page_two h1{
+		bottom: 25%;
+	}
+	/* 3d盒子 */
+	#page_two .box_3d{
+		position: absolute;
+		top: 100px;
+		left: 10%;
+	}
+	/* 第二页的小图片 */
+	#page_two .box_3d ul li{
+		width: 200px;
+		height: 200px;
+		margin: 0 5px;
+		float: left;
+		background: url(images/3d_pic.jpg) no-repeat;
+		background-size: 100% 100%; 
+		transition: 1s;
+		cursor: pointer;
+		opacity: .6;
+	}
+	#page_two .box_3d ul li:nth-child(2){
+		background:  url(images/pic1.jpg) no-repeat;
+		background-size: 100% 100%; 
+	}
+	#page_two .box_3d ul li:nth-child(3){
+		background:  url(images/pic2.jpg) no-repeat;
+		background-size: 100% 100%; 
+	}
+	#page_two .box_3d ul li:nth-child(4){
+		background:  url(images/pic3.jpg) no-repeat;
+		background-size: 100% 100%; 
+	}
+	#page_two .box_3d ul li:nth-child(5){
+		background:  url(images/pic4.jpg) no-repeat;
+		background-size: 100% 100%; 
+	}
+	/* 当鼠标在第二页的小图片上时 */
+	#page_two .box_3d ul li:hover{
+		background-image: url(images/ewm.png);
+		transform:rotateY(180deg);
+		opacity: 1;
+	}
+	/* 第三页设置 */
+	#page_three{
+		width: 100%;
+		height: 800px;
+		position: absolute;
+	}
+	/* 第三页的左侧抽屉盒子 */
+	#page_three ul{
+		position: absolute;
+		top: 100px;
+		left: 20px;
+	}
+	/* 第三页左侧小抽屉 */
+	#page_three ul li{
+		width: 400px;
+		height: 200px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		overflow: hidden;
+		transition: 1s;
+		cursor: pointer;
+	}
+	/* 第三页小抽屉图片*/
+	#page_three ul li img{
+		width: 100%;
+		display: block;
+	}
+	/* 小抽屉在划过时 */
+	#page_three ul li:hover{
+		width: 1000px;
+		height: 600px;
+		top: 200px;
+		overflow: hidden;
+		z-index: 999;
+	}
+/* 	定义第三页的视频盒子
+#page_three .p3video{
+	width: 50%;
+	height: 300px;
+	position: absolute;
+	bottom: 20%;
+	right: 100px;
+} */
+	/* 第三页的视频 */
+/* 	#page_three .p3video video{
+	width: 100%;
+} */
+	/* 设置第四页 */
+	#page_four{
+		width:100%;
+		position: absolute;
+	}
+	/* 第四页的广告 */
+	#page_four ul li{
+		width: 15%;
+		margin: 25px 44px;
+		height: 290px;
+		float: left;
+		overflow: hidden;
+		position: relative;
+	}
+	/* 第四页广告图片 */
+	#page_four ul li img{
+		width: 100%;
+		display: block;
+		transition: 1s;
+	}
+	/* 第四页广告的遮罩 */
+	#page_four ul li .mask{
+		width: 100%;
+		height: 100%;
+		background: #000;
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+		color: #fff;
+		text-align: center;
+		font-weight: bold;
+		transition: 1s;
+	}
+	/* 广告的动画 */
+	#page_four ul li:hover img{
+		transform: scale(1.3);
+	}
+	/* 第四页的遮罩动画 */
+	#page_four ul li:hover .mask{
+		opacity: .4;
+	}
+	/* 定义底部 */
+	#footer{
+		width: 100%;
+		position: absolute;
+		background:#f5f5f5;
+		padding-bottom: 20px;
+	}
+	/* 底部所有div */
+	#footer div{
+		width: 200px;
+		margin: 0 auto;
+		text-align: center;
+		padding: 3px 0;
+	}
+	/* 底部联系方式 */
+	#footer .text2{
+		width: 441px;
+	}
+	/* 底部地址 */
+	#footer .text3{
+		width: 310px;
+	}
+	/* 定义底部logo */
+	#footer .logo{
+		width: 400px;
+		overflow: hidden;
+		position: relative;
+	}
+	/* 定义底部logo图片 */
+	#footer .logo img{
+		width: 100%;
+		display: block;
+	}
+	/* 底部光影 */
+	#footer .logo .guangying{
+		width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: -370px;
+        background: -moz-linear-gradient(left,rgba(255,255,255,0)0,rgba(255,255,255,.2)50%,rgba(255,255,255,0)100%);
+        background: -webkit-gradient(linear,left top,right top,color-stop(0%,rgba(255,255,255,0)),color-stop(50%,rgba(255,255,255,.2)),color-stop(100%,rgba(255,255,255,0)));
+        background: -webkit-linear-gradient(left,rgba(255,255,255,0)0,rgba(255,255,255,.2)50%,rgba(255,255,255,0)100%);
+        background: -o-linear-gradient(left,rgba(255,255,255,0)0,rgba(255,255,255,.2)50%,rgba(255,255,255,0)100%);
+        -webkit-transform: skewX(-25deg);
+        -moz-transform: skewX(-25deg);
+	}
+	/* 划过时光影会动 */
+	#footer .logo:hover .guangying{
+		-webkit-transition: left 1300ms;
+        -moz-transition: left 1300ms;
+        transition: left 1300ms;
+        left: 470px;
+	}
+
+	/* fix for scroll bars on webkit & Mac OS X Lion */ 
+	::-webkit-scrollbar {
+		background-color: rgba(0,0,0,0.5);
+		width: 0.75em;
+		display: none;
+	}
+	
+	::-webkit-scrollbar-thumb {
+		background-color:  rgba(255,255,255,0.5);
+	}
+	
+	#loading{
+		width: 100%;
+		position: fixed;
+		top: 0;
+		left: 0;
+		background: #000;
+		z-index: 9999999999999999999;
+	}
+
+</style>
+</head>
+<body>
+	<div id="loading"></div>
+	<script src="js/loading.js"></script>
+	<!-- 引入vr的js -->
+	<script type="text/javascript" src="js/vr.js"></script>
+
+	<!-- 背景视频 -->
+    <div class="bg_video">
+    	<video src="images/banner.mp4" autoplay="autoplay" autoloop loop>
+    		您的浏览器不支持h5
+    	</video>
+    </div>
+	<!-- 第二页背景 -->
+    <div id="page_two_bg">
+    	<img src="images/bg2.jpg" alt="">
+    </div>
+
+    <!-- 上部导航栏 -->
+	<div class="nav">
+		<ul>
+			<li class="logo">
+				<img src="images/logo_small.png" alt="logo">
+			</li>
+			<li class="text">首页</li>
+			<li class="text">关于东软</li>
+			<li class="text">联系东软</li>
+			<li class="text">关于东软</li>
+			<li class="text">联系东软</li>
+		</ul>
+	</div>
+	<!-- 首页盒子 -->
+	<div class="box" id="box">
+		<h1>Neusoft</h1>
+		<div id="fp_box">
+			<div id="word"></div>
+			<span id="shu">|</span>
+		</div>
+	</div>
+	<!-- 第二页盒子 -->
+	<div id="page_two">
+		<div class="box_3d">
+			<ul>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+				<li></li>
+			</ul>
+		</div>
+		<!-- 第二页文字 -->
+		<h1>为什么学习HTML5？</h1>
+		<h3>HTML5是什么？</h3>
+		<p>5动画、小游戏、3D展示、邀请函、全景、VR/AR、弹幕、多屏互动、交互视频、数据表单、会员系统……无所不能</p>
+	</div>
+	<!-- 第三页 -->
+	<div id="page_three">
+		<ul>
+			<li class="p3_1">
+				<img src="images/ad1.jpg" alt="图片1">
+			</li>
+			<li class="p3_2">
+				<img src="images/ad2.jpg" alt="图片2">
+			</li>
+			<li class="p3_3">
+				<img src="images/ad3.jpg" alt="图片3">
+			</li>
+			<li class="p3_4">
+				<img src="images/ad4.jpg" alt="图片4">
+			</li>
+			<li class="p3_5">
+				<img src="images/ad5.jpg" alt="图片5">
+			</li>
+			<li class="p3_6">
+				<img src="images/ad6.jpg" alt="图片5">
+			</li>
+			<li class="p3_7">
+				<img src="images/ad7.jpg" alt="图片5">
+			</li>
+		</ul>
+	</div>
+
+	<!-- 第四行的盒子 -->
+	<div id="page_four">
+		<ul>
+			<li id="container" style="width:248px;height:378px;">
+				<!-- <img src="images/ad1.jpg" alt="" />
+				<div class="mask"><h1>HTML5是什么？</h1></div> -->
+			</li>
+			<li id="container1" style="width:248px;height:378px;">
+				<!-- <img src="images/ad2.jpg" alt="" />
+				<div class="mask"><h1>HTML5是什么？</h1></div> -->
+			</li>
+			<li id="container2" style="width:248px;height:378px;">
+				<!-- <img src="images/ad3.jpg" alt="" />
+				<div class="mask"><h1>HTML5是什么？</h1></div> -->
+			</li>
+			<li id="container3" style="width:248px;height:378px;">
+				<!-- <img src="images/ad4.jpg" alt="" />
+				<div class="mask"><h1>HTML5是什么？</h1></div> -->
+			</li>
+			<li id="container4" style="width:248px;height:378px;">
+				<!-- <img src="images/ad5.jpg" alt="" />
+				<div class="mask"><h1>HTML5是什么？</h1></div> -->
+			</li>
+			<li id="container5" style="width:248px;height:378px;">
+				<!-- <img src="images/ad6.jpg" alt="" />
+				<div class="mask"><h1>HTML5是什么？</h1></div> -->
+			</li>
+			<li id="container6" style="width:248px;height:378px;">
+				<!-- <img src="images/ad7.jpg" alt="" />
+				<div class="mask"><h1>HTML5是什么？</h1></div> -->
+			</li>
+			<li id="container7" style="width:248px;height:378px;">
+				<!-- <img src="images/ad8.jpg" alt="" />
+				<div class="mask"><h1>HTML5是什么？</h1></div> -->
+			</li>
+		</ul>
+	</div>
+	
+	<!-- vr全景图的js -->
+	<script type="text/javascript">
+	
+
+
+		// check for CSS3 3D transformations and WebGL
+		if (ggHasHtml5Css3D() || ggHasWebGL()) {
+		// use HTML5 panorama
+	
+			// create the panorama player with the container
+			pano=new pano2vrPlayer("container");
+			pano.readConfigUrl("output/360_out.xml");
+			// hide the URL bar on the iPhone
+			setTimeout(function() { hideUrlBar(); }, 10);
+		} else 
+		if (swfobject.hasFlashPlayerVersion("10.0.0")) {
+			var flashvars = {};
+			var params = {};
+			// enable javascript interface
+			flashvars.externalinterface="1";
+			params.quality = "high";
+			params.bgcolor = "#ffffff";
+			params.allowscriptaccess = "sameDomain";
+			params.allowfullscreen = "true";
+			var attributes = {};
+			attributes.id = "pano";
+			attributes.name = "pano";
+			attributes.align = "middle";
+			flashvars.panoxml="output/360_out.xml";
+			params.base="../output";
+			swfobject.embedSWF(
+				"pano2vr_player.swf", "container", 
+				"248", "378",
+				"9.0.0", "", 
+				flashvars, params, attributes);
+			
+		}
+
+		/*第二张图*/
+		// check for CSS3 3D transformations and WebGL
+		if (ggHasHtml5Css3D() || ggHasWebGL()) {
+		// use HTML5 panorama
+	
+			// create the panorama player with the container
+			pano=new pano2vrPlayer("container1");
+			pano.readConfigUrl("output/3602_out.xml");
+			// hide the URL bar on the iPhone
+			setTimeout(function() { hideUrlBar(); }, 10);
+		} else 
+		if (swfobject.hasFlashPlayerVersion("10.0.0")) {
+			var flashvars = {};
+			var params = {};
+			// enable javascript interface
+			flashvars.externalinterface="1";
+			params.quality = "high";
+			params.bgcolor = "#ffffff";
+			params.allowscriptaccess = "sameDomain";
+			params.allowfullscreen = "true";
+			var attributes = {};
+			attributes.id = "pano";
+			attributes.name = "pano";
+			attributes.align = "middle";
+			flashvars.panoxml="output/3602_out.xml";
+			params.base="../output";
+			swfobject.embedSWF(
+				"pano2vr_player.swf", "container", 
+				"248", "378",
+				"9.0.0", "", 
+				flashvars, params, attributes);
+		}
+
+		/*第三页*/
+		// check for CSS3 3D transformations and WebGL
+		if (ggHasHtml5Css3D() || ggHasWebGL()) {
+		// use HTML5 panorama
+	
+			// create the panorama player with the container
+			pano=new pano2vrPlayer("container2");
+			pano.readConfigUrl("output/3603_out.xml");
+			// hide the URL bar on the iPhone
+			setTimeout(function() { hideUrlBar(); }, 10);
+		} else 
+		if (swfobject.hasFlashPlayerVersion("10.0.0")) {
+			var flashvars = {};
+			var params = {};
+			// enable javascript interface
+			flashvars.externalinterface="1";
+			params.quality = "high";
+			params.bgcolor = "#ffffff";
+			params.allowscriptaccess = "sameDomain";
+			params.allowfullscreen = "true";
+			var attributes = {};
+			attributes.id = "pano";
+			attributes.name = "pano";
+			attributes.align = "middle";
+			flashvars.panoxml="output/3603_out.xml";
+			params.base="../output";
+			swfobject.embedSWF(
+				"pano2vr_player.swf", "container", 
+				"248", "378",
+				"9.0.0", "", 
+				flashvars, params, attributes);
+			
+		}
+		/*第四页*/
+		// check for CSS3 3D transformations and WebGL
+		if (ggHasHtml5Css3D() || ggHasWebGL()) {
+		// use HTML5 panorama
+	
+			// create the panorama player with the container
+			pano=new pano2vrPlayer("container3");
+			pano.readConfigUrl("output/3604_out.xml");
+			// hide the URL bar on the iPhone
+			setTimeout(function() { hideUrlBar(); }, 10);
+		} else 
+		if (swfobject.hasFlashPlayerVersion("10.0.0")) {
+			var flashvars = {};
+			var params = {};
+			// enable javascript interface
+			flashvars.externalinterface="1";
+			params.quality = "high";
+			params.bgcolor = "#ffffff";
+			params.allowscriptaccess = "sameDomain";
+			params.allowfullscreen = "true";
+			var attributes = {};
+			attributes.id = "pano";
+			attributes.name = "pano";
+			attributes.align = "middle";
+			flashvars.panoxml="output/3604_out.xml";
+			params.base="../output";
+			swfobject.embedSWF(
+				"pano2vr_player.swf", "container", 
+				"248", "378",
+				"9.0.0", "", 
+				flashvars, params, attributes);
+			
+		}
+		/*第五页*/
+		// check for CSS3 3D transformations and WebGL
+		if (ggHasHtml5Css3D() || ggHasWebGL()) {
+		// use HTML5 panorama
+	
+			// create the panorama player with the container
+			pano=new pano2vrPlayer("container4");
+			pano.readConfigUrl("output/3605_out.xml");
+			// hide the URL bar on the iPhone
+			setTimeout(function() { hideUrlBar(); }, 10);
+		} else 
+		if (swfobject.hasFlashPlayerVersion("10.0.0")) {
+			var flashvars = {};
+			var params = {};
+			// enable javascript interface
+			flashvars.externalinterface="1";
+			params.quality = "high";
+			params.bgcolor = "#ffffff";
+			params.allowscriptaccess = "sameDomain";
+			params.allowfullscreen = "true";
+			var attributes = {};
+			attributes.id = "pano";
+			attributes.name = "pano";
+			attributes.align = "middle";
+			flashvars.panoxml="output/3605_out.xml";
+			params.base="../output";
+			swfobject.embedSWF(
+				"pano2vr_player.swf", "container", 
+				"248", "378",
+				"9.0.0", "", 
+				flashvars, params, attributes);
+			
+		}
+		/*第六页*/
+		// check for CSS3 3D transformations and WebGL
+		if (ggHasHtml5Css3D() || ggHasWebGL()) {
+		// use HTML5 panorama
+	
+			// create the panorama player with the container
+			pano=new pano2vrPlayer("container5");
+			pano.readConfigUrl("output/3606_out.xml");
+			// hide the URL bar on the iPhone
+			setTimeout(function() { hideUrlBar(); }, 10);
+		} else 
+		if (swfobject.hasFlashPlayerVersion("10.0.0")) {
+			var flashvars = {};
+			var params = {};
+			// enable javascript interface
+			flashvars.externalinterface="1";
+			params.quality = "high";
+			params.bgcolor = "#ffffff";
+			params.allowscriptaccess = "sameDomain";
+			params.allowfullscreen = "true";
+			var attributes = {};
+			attributes.id = "pano";
+			attributes.name = "pano";
+			attributes.align = "middle";
+			flashvars.panoxml="output/3606_out.xml";
+			params.base="../output";
+			swfobject.embedSWF(
+				"pano2vr_player.swf", "container", 
+				"248", "378",
+				"9.0.0", "", 
+				flashvars, params, attributes);
+			
+		}
+		/*第七页*/
+		// check for CSS3 3D transformations and WebGL
+		if (ggHasHtml5Css3D() || ggHasWebGL()) {
+		// use HTML5 panorama
+	
+			// create the panorama player with the container
+			pano=new pano2vrPlayer("container6");
+			pano.readConfigUrl("output/3607_out.xml");
+			// hide the URL bar on the iPhone
+			setTimeout(function() { hideUrlBar(); }, 10);
+		} else 
+		if (swfobject.hasFlashPlayerVersion("10.0.0")) {
+			var flashvars = {};
+			var params = {};
+			// enable javascript interface
+			flashvars.externalinterface="1";
+			params.quality = "high";
+			params.bgcolor = "#ffffff";
+			params.allowscriptaccess = "sameDomain";
+			params.allowfullscreen = "true";
+			var attributes = {};
+			attributes.id = "pano";
+			attributes.name = "pano";
+			attributes.align = "middle";
+			flashvars.panoxml="output/3607_out.xml";
+			params.base="../output";
+			swfobject.embedSWF(
+				"pano2vr_player.swf", "container", 
+				"248", "378",
+				"9.0.0", "", 
+				flashvars, params, attributes);
+			
+		}
+		/*第八页*/
+		// check for CSS3 3D transformations and WebGL
+		if (ggHasHtml5Css3D() || ggHasWebGL()) {
+		// use HTML5 panorama
+	
+			// create the panorama player with the container
+			pano=new pano2vrPlayer("container7");
+			pano.readConfigUrl("output/3608_out.xml");
+			// hide the URL bar on the iPhone
+			setTimeout(function() { hideUrlBar(); }, 10);
+		} else 
+		if (swfobject.hasFlashPlayerVersion("10.0.0")) {
+			var flashvars = {};
+			var params = {};
+			// enable javascript interface
+			flashvars.externalinterface="1";
+			params.quality = "high";
+			params.bgcolor = "#ffffff";
+			params.allowscriptaccess = "sameDomain";
+			params.allowfullscreen = "true";
+			var attributes = {};
+			attributes.id = "pano";
+			attributes.name = "pano";
+			attributes.align = "middle";
+			flashvars.panoxml="output/3608_out.xml";
+			params.base="../output";
+			swfobject.embedSWF(
+				"pano2vr_player.swf", "container", 
+				"248", "378",
+				"9.0.0", "", 
+				flashvars, params, attributes);
+			
+		}
+		
+		</script><!-- vr全景图的js结束 -->
+
+	<div id="footer">
+		<div class="logo">
+			<img src="images/logo_big.png" alt="">
+			<div class="guangying"></div>
+		</div>
+		<div class="text1">
+			哈尔滨东软睿道
+		</div>
+		<div class="text2">
+			联系电话：13199410022；&nbsp;&nbsp;&nbsp;邮箱：liu.nian@neusoft.com；
+		</div>
+		<div class="text3">
+			哈尔滨市南岗区松花江街15号华驿大厦2709
+		</div>
+	</div>
+
+	<!-- javascript开始 -->
+	<script type="text/javascript" src="js/jquery.js"></script>
+	<script type="text/javascript">
+		/*当页面所有元素加载完成时*/
+		window.onload=function(){
+			var lod=document.getElementById("loading");
+			lod.parentNode.removeChild(lod);
+			/*用id获取元素*/
+			var wordBox=document.getElementById("word");
+			var page_box=document.getElementById("box");
+			var shu=document.getElementById("shu");
+			/*设置打字特效的数组*/
+			var wordArr=["今","天","学","习","制","作","H","T","M","L","5"]
+			/*打出每一个字，从0开始*/
+			var w=0;
+			/*添加每一个字的计时器*/
+			var appendWord=setInterval(function(){
+				/*创建b标签*/
+				var word=document.createElement("b");
+				/*给一个随机id*/
+				word.id=Math.random();
+				/*把每一个字都给标签里*/
+				word.innerHTML=wordArr[w];
+				/*设置完每一个属性，把元素添加到页面中*/
+				wordBox.appendChild(word);
+				/*w++切换下一个词*/
+				w++;
+				/*判断文字数组是否到头*/
+				if(w>=wordArr.length){
+					/*清除计时器*/
+					clearInterval(appendWord);
+					/*删除光标元素*/
+					shu.parentNode.removeChild(shu);
+					/*创建一个点击盒子*/
+					var clickBox=document.createElement("div");
+					/*给一个固定id*/
+					clickBox.id="click_box";
+					/*把元素添加到里面*/
+					wordBox.appendChild(clickBox);
+					/*给点击盒子一个动画*/
+					$("#click_box").stop(true,true).animate({opacity:1,width:300},2000,function(){
+						/*添加文字*/
+						clickBox.innerHTML="点击开始学习";
+						/*设置当盒子点击时向上滚动*/
+						clickBox.onclick=function(){
+							$("body").stop(true,true).animate({scrollTop:$("#page_two").offset().top},1000)
+						}
+					})
+				}
+			},200)
+			
+			/*获取id叫pageTwo的div元素*/
+			var pageTwo=document.getElementById("page_two");
+			/*设置pageTwo的top为一个屏幕高*/
+			pageTwo.style.top=document.documentElement.clientHeight+100+"px";
+			pageTwo.style.height=document.documentElement.clientHeight+"px";
+			/*第二页背景*/
+			var pageTwoBg=document.getElementById("page_two_bg");
+			/*设置pageTwo的top为一个屏幕高*/
+			pageTwoBg.style.top=document.documentElement.clientHeight+100+"px";
+			pageTwoBg.style.height=document.documentElement.clientHeight+"px";
+
+			/*当屏幕滚动时判断屏幕滚动的高度*/
+			$(window).scroll(function(){
+				var gundongTop=$("body").scrollTop();
+				if(gundongTop>=$("#page_two").offset().top){
+					$("#page_two h1").stop(true,true).animate({bottom:"30%",opacity:1},800,function(){
+						$("#page_two h3").stop(true,true).animate({bottom:"25%",opacity:1},800,function(){
+							$("#page_two p").stop(true,true).animate({bottom:"20%",opacity:1},800);
+						});
+					});	
+				}
+
+			})	
+			/*获取id叫pageThree的div元素*/
+			var pageThree=document.getElementById("page_three");
+			/*设置pageThree的top接着page2来*/
+			pageThree.style.top=pageTwo.offsetTop+pageTwo.offsetHeight+"px";
+			pageThree.style.height=(document.documentElement.clientHeight)/2+"px";
+
+			/*for循环遍历每一个page3的li，并设置他的top*/
+			for(var i=0;i<8;i++){
+				$("#page_three ul li:eq("+i+")").css("left",150*i);
+				$("#page_three ul li:eq("+i+")").css("top",-100);
+			}
+
+			$("#page_three ul li").mouseover(function(){
+				$(this).stop(true,true).animate({top:-500,left:0},400)
+			})
+			$("#page_three ul li").mouseout(function(){
+				$(this).stop(true,true).animate({top:-100},400)
+				for(var i=0;i<8;i++){
+				$("#page_three ul li:eq("+i+")").css("left",150*i);
+			}
+			})
+
+			/*获取id叫pageFour的div元素*/
+			var pageFour=document.getElementById("page_four");
+			/*设置pageFour的top接着page2来*/
+			pageFour.style.top=pageThree.offsetTop+pageThree.offsetHeight+"px";
+
+
+			/*获取id叫footer的div元素*/
+			var footer=document.getElementById("footer");
+			/*设置pageFour的top接着page2来*/
+			footer.style.top=pageFour.offsetTop+pageFour.offsetHeight+"px";
+
+
+		}
+	</script>
+</body>
+</html>
